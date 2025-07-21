@@ -1,3 +1,14 @@
+---
+import MenuItemContainerView from "../components/MenuItemContainerView.astro";
+import MenuItemView from "../components/MenuItemView.astro";
+import menuItems from "../data/menuItemsData";
+
+export interface Props {
+	title: string;
+}
+const { title } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,9 +16,12 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
 	<body>
+		<MenuItemContainerView>
+			{menuItems.map((item) => <MenuItemView {...item} />)}
+		</MenuItemContainerView>
 		<slot />
 	</body>
 </html>
@@ -18,5 +32,6 @@
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	}
 </style>
