@@ -1,5 +1,4 @@
-import { useState } from "react";
-import type { CardItem } from "../types/types";
+import type { CardItem } from "../../types/types";
 import "./cardsView.css";
 
 interface CardsViewProps {
